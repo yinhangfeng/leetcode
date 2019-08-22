@@ -101,6 +101,9 @@ function recurse(
   }
 }
 
+const expressionArr = new Array(8);
+const sArr = new Array(8);
+
 /**
  * @param {string} s
  * @return {string[]}
@@ -110,7 +113,8 @@ var removeInvalidParentheses = function(s) {
   //   return [s];
   // }
   const length = s.length;
-  const sArr = new Array(length);
+  // const sArr = new Array(length);
+  sArr.length = length;
   let left = 0;
   let right = 0;
   let leftCount = 0;
@@ -133,7 +137,8 @@ var removeInvalidParentheses = function(s) {
   }
 
   const result = [];
-  const expressionArr = new Array(length - left - right);
+  // const expressionArr = new Array(length - left - right);
+  expressionArr.length = length - left - right;
   recurse(sArr, 0, 0, left, right, leftCount, rightCount, expressionArr, 0, result);
   return result;
 };
